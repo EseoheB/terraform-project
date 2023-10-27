@@ -21,18 +21,26 @@ variable "private-subnet-2_cidr" {
 
 # Defining AMI ID
 variable "ami_id" {
-  default = "ami-0df435f331839b2d6"
-  type = string
+  default = {
+    linux  = "ami-0dbc3d7bc646e8516",
+    ubuntu = "ami-0fc5d935ebf8bc3bc"
+  }
 }
 
 # Defining Instance type
 variable "instance_type" {
-  default = "t2.micro"
-  type = string
+                #   0          1          2
+  default = ["t2.medium", "t2.micro"]
+  type    = list(string)
 }
 
 # Defining Public IP address
 variable "enable_public_ip" {
   default = true
   type = bool
+}
+
+# Defining Workspace Environment
+variable "env" {
+  default = "dev"
 }

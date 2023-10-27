@@ -40,7 +40,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone this repository:
 
--git clone https://github.com/yourusername/terraform-aws-project.git
+- git clone https://github.com/yourusername/terraform-aws-project.git
 cd terraform-aws-project
 
 2. Configure your AWS credentials:

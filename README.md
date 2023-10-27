@@ -45,27 +45,27 @@ cd terraform-aws-project
 
 2. Configure your AWS credentials:
 
- -aws configure
+ - aws configure
 
 3. Initialize Terraform:
  
- -terraform init
+ - terraform init
 
 4. Validate the Terraform configuration:
 
- -terraform validate
+ - terraform validate
 
 5. Plan the changes to be made:
 
- -terraform plan
+ - terraform plan
 
 6. Apply the configuration to create or update resources:
 
- -terraform apply
+ - terraform apply
 
 7. To destroy the created resources when no longer needed:
 
- -terraform destroy 
+ - terraform destroy 
 
 ## Configuration
 
@@ -86,10 +86,13 @@ This project uses variables to customize your infrastructure. You can specify th
 
 Here's a basic terraform.tfvars file:
 
-1. region = "us-east-1"
-2. vpc_cidr_block = "10.0.0.0/16"
-3. instance_type = "t2.micro"
-4. key_name = "your-key"
+{
+    
+    region = "us-east-1"
+    vpc_cidr_block = "10.0.0.0/16"
+    instance_type = "t2.micro"
+    key_name = "your-key"
+}
 
 Add more variables as needed
 
@@ -100,11 +103,16 @@ The `local.tf` file defines local values and computed expressions for use within
 
 These commands are used to deploy this project; 
 
-1. terraform init: Initializes the project.
-2. terraform validate: Checks for syntax error.
-3. terraform plan: Shows a preview of changes.
-4. terraform apply: Applies the changes to create or update resources.
-5. terraform destroy: Destroys all resources created by Terraform.
+1. Initializes the project:
+ - terraform init
+2. Checks for syntax error:
+ - terraform validate
+3. Shows a preview of changes:
+ - terraform plan 
+4. Applies the changes to create or update resources:
+ - terraform apply
+5. Destroys all resources created by Terraform:
+ - terraform destroy 
 
 
 ## Terraform Workspace
@@ -113,20 +121,20 @@ Terraform workspaces allow you to manage multiple environments or deployments wi
 
 Here are some common Terraform workspace commands:
 
-- Initialize a new workspace:
-  terraform workspace new <workspace_name>
+1. Initialize a new workspace:
+  - terraform workspace new <workspace_name>
 
-- List all available workspaces:
-  terraform workspace list
+2. List all available workspaces:
+  - terraform workspace list
 
-- Switch to a different workspace:
-  terraform workspace select <workspace_name>
+3. Switch to a different workspace:
+  - terraform workspace select <workspace_name>
 
-- Delete available workspaces:
-  terraform workspace delete <workspace_name>
+4. Delete available workspaces:
+  - terraform workspace delete <workspace_name>
 
-- Shows the name of your present workspaces:
-  terraform workspace show
+5. Shows the name of your present workspaces:
+  - terraform workspace show
 
 Create, update, or destroy resources within the selected workspace using other Terraform commands (e.g., terraform plan, terraform apply, terraform destroy).
 

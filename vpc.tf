@@ -1,8 +1,6 @@
 resource "aws_vpc" "web_server_vpc" {
   cidr_block = var.vpc_cidr
-  tags = {
-    Name = "Webserver VPC"
-  }
+  tags = merge({Name = "${local.project_name}-${local.env}-VPC"}, local.project_tags)
 }
 
 resource "aws_subnet" "public-subnet-1" {
@@ -11,9 +9,7 @@ resource "aws_subnet" "public-subnet-1" {
   availability_zone = "us-east-1a"
   map_public_ip_on_launch = true
 
-  tags = {
-    Name = "Public-subnet-1"
-  }
+  tags = merge({Name = "${local.project_name}-Public-Subnet-1"}, local.project_tags)
 }
 
 resource "aws_subnet" "public-subnet-2" {
@@ -22,9 +18,7 @@ resource "aws_subnet" "public-subnet-2" {
   availability_zone = "us-east-1b"
   map_public_ip_on_launch = true
 
-  tags = {
-    Name = "Public-subnet-2"
-  }
+  tags = merge({Name = "${local.project_name}-Public-Subnet-2"}, local.project_tags)
 }
 
 resource "aws_subnet" "private-subnet-1" {
@@ -32,9 +26,7 @@ resource "aws_subnet" "private-subnet-1" {
   cidr_block             = var.private-subnet-1_cidr
   availability_zone = "us-east-1a"
 
-  tags = {
-    Name = "Private-subnet-1"
-  }
+  tags = merge({Name = "${local.project_name}-Private-Subnet-1"}, local.project_tags)
 }
 
 resource "aws_subnet" "private-subnet-2" {
@@ -42,27 +34,21 @@ resource "aws_subnet" "private-subnet-2" {
   cidr_block             = var.private-subnet-2_cidr
   availability_zone = "us-east-1b"
 
-  tags = {
-    Name = "Private-subnet-2"
-  }
+  tags = merge({Name = "${local.project_name}-Private-Subnet-2"}, local.project_tags)
 }
 
 # Creating Internet Gateway 
 resource "aws_internet_gateway" "IGW" {
   vpc_id = aws_vpc.web_server_vpc.id
 
-    tags = {
-    Name = "IGW"
-  }
+    tags = merge({Name = "${local.project_name}-IGW"}, local.project_tags)
 }
 
 # Creating a Route Table for a Public Subnet
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.web_server_vpc.id
 
-  tags = {
-    Name = "Public Route Table"
-  }
+  tags = merge({Name = "${local.project_name}-Public-RT"}, local.project_tags)
 }
 
 # Defining a Default Route to the Internet Gateway in the Public Route Table
@@ -87,9 +73,7 @@ resource "aws_route_table_association" "rt_associate_public_2" {
 # Creating EIP
 resource "aws_eip" "elastic_ip" {
 
-    tags = {
-    Name = "EIP"
-  }
+    tags = merge({Name = "${local.project_name}-EIP"}, local.project_tags)
 }
 
 # Creating NAT Gateway
@@ -97,18 +81,14 @@ resource "aws_nat_gateway" "nat_gw" {
   allocation_id = aws_eip.elastic_ip.id
   subnet_id     = aws_subnet.public-subnet-1.id
 
-    tags = {
-    Name = "NAT-GW"
-  }
+    tags = merge({Name = "${local.project_name}-NAT"}, local.project_tags)
 }
 
 # Creating a Route Table for a Private Subnet
 resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.web_server_vpc.id
 
-  tags = {
-    Name = "Private Route Table"
-  }
+  tags = merge({Name = "${local.project_name}-Private-RT"}, local.project_tags)
 }
 
 # Defining a Route to the NatGatway in the Private Route Table

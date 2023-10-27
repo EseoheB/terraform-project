@@ -39,32 +39,32 @@ Before you begin, ensure you have the following installed:
 ## Getting Started
 
 1. Clone this repository:
- - sh
+```sh
 git clone https://github.com/yourusername/terraform-aws-project.git
 cd terraform-aws-project
 
 2. Configure your AWS credentials:
- - sh
+```sh
  aws configure
 
 3. Initialize Terraform:
-  - sh
+```sh
  terraform init
 
 4. Validate the Terraform configuration:
-  - sh
+```sh
  terraform validate
 
 5. Plan the changes to be made:
-  - sh
+```sh
  terraform plan
 
 6. Apply the configuration to create or update resources:
- - sh
+```sh
  terraform apply
 
 7. To destroy the created resources when no longer needed:
- - sh
+```sh
  terraform destroy 
 
 ## Configuration
@@ -85,7 +85,7 @@ Please review these files to understand and customize your infrastructure.
 This project uses variables to customize your infrastructure. You can specify them in a terraform.tfvars file or use environment variables. Refer to the `variables.tf` file for a list of available variables and their descriptions.
 
 Here's a basic terraform.tfvars file:
-
+```sh
 region = "us-east-1"
 vpc_cidr_block = "10.0.0.0/16"
 instance_type = "t2.micro"

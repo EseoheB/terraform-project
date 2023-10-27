@@ -30,4 +30,5 @@ vpc_id      = "${aws_vpc.web_server_vpc.id}"
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  tags = merge({Name = "${local.project_name}-SG"}, local.project_tags)
 }

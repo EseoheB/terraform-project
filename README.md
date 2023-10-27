@@ -39,33 +39,33 @@ Before you begin, ensure you have the following installed:
 ## Getting Started
 
 1. Clone this repository:
-```sh
-git clone https://github.com/yourusername/terraform-aws-project.git
+
+-git clone https://github.com/yourusername/terraform-aws-project.git
 cd terraform-aws-project
 
 2. Configure your AWS credentials:
-```sh
- aws configure
+
+ -aws configure
 
 3. Initialize Terraform:
-```sh
- terraform init
+ 
+ -terraform init
 
 4. Validate the Terraform configuration:
-```sh
- terraform validate
+
+ -terraform validate
 
 5. Plan the changes to be made:
-```sh
- terraform plan
+
+ -terraform plan
 
 6. Apply the configuration to create or update resources:
-```sh
- terraform apply
+
+ -terraform apply
 
 7. To destroy the created resources when no longer needed:
-```sh
- terraform destroy 
+
+ -terraform destroy 
 
 ## Configuration
 
@@ -85,12 +85,13 @@ Please review these files to understand and customize your infrastructure.
 This project uses variables to customize your infrastructure. You can specify them in a terraform.tfvars file or use environment variables. Refer to the `variables.tf` file for a list of available variables and their descriptions.
 
 Here's a basic terraform.tfvars file:
-```sh
-region = "us-east-1"
-vpc_cidr_block = "10.0.0.0/16"
-instance_type = "t2.micro"
-key_name = "your-key"
-# Add more variables as needed
+
+1. region = "us-east-1"
+2. vpc_cidr_block = "10.0.0.0/16"
+3. instance_type = "t2.micro"
+4. key_name = "your-key"
+
+Add more variables as needed
 
 ## Locals
 
@@ -113,19 +114,18 @@ Terraform workspaces allow you to manage multiple environments or deployments wi
 Here are some common Terraform workspace commands:
 
 - Initialize a new workspace:
-  ```sh
   terraform workspace new <workspace_name>
+
 - List all available workspaces:
-  ```sh
   terraform workspace list
+
 - Switch to a different workspace:
-  ```sh
   terraform workspace select <workspace_name>
+
 - Delete available workspaces:
-  ```sh
   terraform workspace delete <workspace_name>
+
 - Shows the name of your present workspaces:
-  ```sh
   terraform workspace show
 
 Create, update, or destroy resources within the selected workspace using other Terraform commands (e.g., terraform plan, terraform apply, terraform destroy).

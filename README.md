@@ -139,10 +139,23 @@ Here are some common Terraform workspace commands:
 Create, update, or destroy resources within the selected workspace using other Terraform commands (e.g., terraform plan, terraform apply, terraform destroy).
 
 Terraform workspaces can help you manage and isolate your infrastructure configurations for different environments, making it easier to collaborate and maintain consistency across your deployments.
+
 ## Contributing
 
 Contributions are always welcome!
-If you would like to contribute to this project or have suggestions for improvements, please open an issue or a pull request.
+Here’s how we suggest you go about proposing a change to this project:
+
+1. [Fork this project][fork] to your account.
+2. [Create a branch][branch] for the change you intend to make.
+3. Make your changes to your fork.
+4. [Send a pull request][pr] from your fork’s branch to our `main` branch.
+
+Using the web-based interface to make changes is fine too, and will help you
+by automatically forking the project and prompting to send a pull request too.
+
+[fork]: https://help.github.com/articles/fork-a-repo/
+[branch]: https://help.github.com/articles/creating-and-deleting-branches-within-your-repository
+[pr]: https://help.github.com/articles/using-pull-requests/
 
 
 ## Appendix
